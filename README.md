@@ -43,7 +43,7 @@ Validate every scenario against the existing infrastructure and similar implemen
 
 Each requirement is assessed for:
 
-**Feasibility · Effort (S–XL) · Dependencies · Risks**
+**Feasibility · Effort (S-XL) · Dependencies · Risks**
 
 This exposes implementation constraints **before development begins.**
 
