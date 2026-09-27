@@ -1,84 +1,25 @@
 # Requirements Pipeline
 
-**From rough feature idea to codebase-validated, test-ready requirements.**
+**From rough feature idea → codebase-validated Gherkin requirements.**
 
-The Requirements Pipeline is a system of four Claude skills that transforms an ambiguous feature request into final Gherkin requirements—grounded in your actual codebase.
+A system of four Claude skills that works through a feature request before it reaches engineering.
 
-Instead of jumping from **idea → ticket → development**, the pipeline systematically validates what should be built, what could go wrong, whether it can be supported by the existing system, and how it should be tested.
+### 01 — Refine
+Turn the raw idea into clear, structured requirements and validate assumptions against the codebase.
 
-## The Problem
+### 02 — Find Edge Cases
+Trace relevant code paths and surface realistic edge cases.  
+You decide how each should be handled.
 
-Feature requests rarely arrive development-ready.
+### 03 — Check Feasibility
+Validate the requirements against existing infrastructure, patterns, dependencies, effort, and risks.
 
-They start as loose ideas with:
+### 04 — Generate
+Turn all validated decisions into final, test-ready `.feature` files with traceability back through the pipeline.
 
-- Ambiguous requirements
-- Missing edge cases
-- Assumptions about existing functionality
-- No validation against the current architecture
-- Acceptance criteria that leave room for interpretation
+### The loop
+**Raw idea → Refine → Edge Cases → Feasibility → Final Gherkin**
+Re-run the loop to modify and refine further
 
-Those gaps become **rework, bugs, scope disputes, and engineering surprises** later in the lifecycle.
-
-## The Pipeline
-
-### 01 — Refine the Draft
-Turn the raw request into structured requirements.
-
-Claude translates the idea into Gherkin, traces terminology and functionality into the existing codebase, and surfaces contradictions or assumptions.
-
-**You decide how each conflict should be resolved.**
-
-### 02 — Identify Edge Cases
-Trace the relevant code paths to uncover realistic failure modes, boundary conditions, and overlooked scenarios.
-
-For every edge case, Claude presents four possible strategies:
-
-**Prevent · Handle Gracefully · Allow & Inform · Defer**
-
-Your decision becomes part of the requirements.
-
-### 03 — Evaluate Feasibility
-Validate every scenario against the existing infrastructure and similar implementations already in the codebase.
-
-Each requirement is assessed for:
-
-**Feasibility · Effort (S-XL) · Dependencies · Risks**
-
-This exposes implementation constraints **before development begins.**
-
-### 04 — Generate Final Gherkin
-Turn the validated decisions into clean, handover-ready `.feature` files.
-
-The final output includes:
-
-- Numbered functional requirements (**FR-n**)
-- Feature / Rule / Scenario structure
-- Acceptance criteria
-- Non-functional requirements
-- Traceability across pipeline stages
-- Step language aligned with existing test conventions
-
-## Why It’s Different
-
-**Code-grounded**  
-Claude validates claims against the connected GitHub repository instead of reasoning from the feature description alone.
-
-**Human-in-the-loop**  
-Claude identifies conflicts and recommends approaches. **You make the product decisions.**
-
-**Fully traceable**  
-Every final scenario can be traced back to the original requirement, discovered edge case, and feasibility assessment.
-
-**Test-ready**  
-Requirements follow the conventions already used by your codebase, making them directly usable by engineering and QA.
-
-## The Output
-
-You end with a set of **repository-ready `.feature` files**—plus a summary covering:
-
-**Scope · Risks · Rollout · Dependencies · Open Questions**
-
-The result is more than a refined ticket.
-
-**It is a codebase-validated specification that engineering and QA can build from.**
+Every stage feeds the next.
+**The result:** requirements that are **clear, code-grounded, decided, and ready for engineering.**
